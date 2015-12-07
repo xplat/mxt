@@ -29,7 +29,7 @@ module Network.Server.Janus.Handler.ConsoleHandler
 where
 
 import System.IO
-import Text.XML.HXT.Core
+import Text.XML.MXT.Core
 
 import Network.Server.Janus.Core
 import Network.Server.Janus.Messaging

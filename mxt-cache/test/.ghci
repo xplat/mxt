@@ -1,0 +1,3 @@
+:set -i../src:../../mxt-binary/src
+:set -ignore-package mxt-cache -ignore-package mxt-binary
+:l TestXmlCache

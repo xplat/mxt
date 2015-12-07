@@ -1,4 +1,0 @@
-:set -hide-package hxt-relaxng
-:set -i../../src
-:set -Wall -fglasgow-exts
-

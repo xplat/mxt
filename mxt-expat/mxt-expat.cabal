@@ -1,0 +1,40 @@
+Name:           mxt-expat
+Version:        9.1.1.1
+Synopsis:       Expat parser for MXT
+Description:    The Expat interface for the MXT.
+License:        OtherLicense
+License-file:   LICENSE
+Author:         Uwe Schmidt
+Maintainer:     Uwe Schmidt <uwe@fh-wedel.de>
+Stability:      Experimental
+Category:       XML
+Homepage:       https://github.com/xplat/mxt
+Copyright:      Copyright (c) 2010 Uwe Schmidt
+Build-type:     Simple
+Cabal-version:  >=1.6
+
+extra-source-files:
+ examples/hparser/HXmlParser.hs
+
+library
+ exposed-modules:
+  Text.XML.MXT.Expat
+
+ other-modules:
+  Text.XML.MXT.Arrow.ExpatInterface
+
+ hs-source-dirs: src
+
+ ghc-options: -Wall
+ ghc-prof-options: -caf-all
+
+ extensions: MultiParamTypeClasses DeriveDataTypeable FunctionalDependencies FlexibleInstances
+
+ build-depends: base               >= 4      && < 5,
+                bytestring         >= 0.9    && < 1,
+                hexpat             >= 0.19.3 && < 1,
+                mxt                >= 9.1    && < 10
+
+Source-Repository head
+  Type:     git
+  Location: git://github.com/xplat/mxt.git

@@ -1,0 +1,11 @@
+:set -package-conf ../../lib/mxt/package.conf
+:set -package mxt
+:set -Wall
+
+:def ex0 (\ _ -> return ":set args --trace=1 --encoding=ISO-8859-1 --do-not-validate -o ISO-8859-1 example1.xml")
+
+:def x (\ _ -> return ":load TreeVisualisation\n:ex0\nmain")
+
+:x
+
+:module + IO Main

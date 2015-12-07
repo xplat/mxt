@@ -1,0 +1,188 @@
+-- arch-tag: Haskell XML Toolbox main description file
+Name:           mxt
+Version:        8.5.5.1
+Synopsis:       A collection of tools for processing XML with Haskell. 
+Description:    The Haskell XML Toolbox bases on the ideas of HaXml and HXML,
+                but introduces a more general approach for processing XML with Haskell.
+                The Haskell XML Toolbox uses a generic data model for representing XML documents,
+                including the DTD subset and the document subset, in Haskell.
+                It contains a validating XML parser, a HTML parser, namespace support,
+                an XPath expression evaluator, an XSLT library, a RelaxNG schema validator
+                and funtions for serialization and deserialization of user defined data.
+                The library makes extensive use of the arrow approach for processing XML.
+                Since version 8.5 XPath and XSLT have been moved to separate packages mxt-xpath and mxt-xslt,
+                serialisation is in package mxt-binary
+License:        OtherLicense
+License-file:   LICENSE
+Author:         Uwe Schmidt, Martin Schmidt, Torben Kuseler
+Maintainer:     Uwe Schmidt <uwe@fh-wedel.de>
+Stability:      Stable
+Category:       XML
+Homepage:       https://github.com/xplat/mxt
+Copyright:      Copyright (c) 2005-2015 Uwe Schmidt
+Build-type:     Simple
+Cabal-version:  >=1.6
+
+extra-source-files:
+ examples/arrows/absurls/AbsURIs.hs
+ examples/arrows/absurls/lousy.html
+ examples/arrows/absurls/Makefile
+ examples/arrows/absurls/ProcessDocument.hs
+ examples/arrows/AGentleIntroductionToMXT/.ghci
+ examples/arrows/AGentleIntroductionToMXT/Makefile
+ examples/arrows/AGentleIntroductionToMXT/PicklerExample/Baseball.hs
+ examples/arrows/AGentleIntroductionToMXT/PicklerExample/Makefile
+ examples/arrows/AGentleIntroductionToMXT/PicklerExample/new-simple2.xml
+ examples/arrows/AGentleIntroductionToMXT/PicklerExample/simple2.xml
+ examples/arrows/AGentleIntroductionToMXT/SimpleExamples.hs
+ examples/arrows/dtd2mxt/DTDtoMXT.hs
+ examples/arrows/dtd2mxt/.ghci
+ examples/arrows/dtd2mxt/Makefile
+ examples/arrows/HelloWorld/bye.xml
+ examples/arrows/HelloWorld/HelloWorld.hs
+ examples/arrows/HelloWorld/hello.xml
+ examples/arrows/HelloWorld/Makefile
+ examples/arrows/HelloWorld/Mini.hs
+ examples/arrows/hparser/emptyElements.html
+ examples/arrows/hparser/example1.xml
+ examples/arrows/hparser/HXmlParser.hs
+ examples/arrows/hparser/invalid1.xml
+ examples/arrows/hparser/invalid2.rng
+ examples/arrows/hparser/invalid3.rng
+ examples/arrows/hparser/invalid.xml
+ examples/arrows/hparser/lousy.html
+ examples/arrows/hparser/Makefile
+ examples/arrows/hparser/namespace0.xml
+ examples/arrows/hparser/namespace1.xml
+ examples/arrows/hparser/valid1.rng
+ examples/arrows/hparser/valid1.xml
+ examples/arrows/hrelaxng/.ghci
+ examples/arrows/hrelaxng/HRelaxNG.hs
+ examples/arrows/hrelaxng/invalid1.xml
+ examples/arrows/hrelaxng/invalid2.rng
+ examples/arrows/hrelaxng/invalid3.rng
+ examples/arrows/hrelaxng/Makefile
+ examples/arrows/hrelaxng/valid1.rng
+ examples/arrows/hrelaxng/valid1.xml
+ examples/arrows/hrelaxng/valid2.rng
+ examples/arrows/hrelaxng/valid2.xml
+ examples/arrows/performance/GenDoc.hs
+ examples/arrows/performance/Makefile
+ examples/arrows/pickle/Makefile
+ examples/arrows/pickle/PickleTest.hs
+ examples/arrows/RegexXMLSchema/Makefile
+ examples/arrows/RegexXMLSchema/REtest.hs
+
+library
+ exposed-modules:
+  Control.Arrow.ArrowIO,
+  Control.Arrow.ArrowIf,
+  Control.Arrow.ArrowList,
+  Control.Arrow.ArrowNF,
+  Control.Arrow.ArrowState,
+  Control.Arrow.ArrowTree,
+  Control.Arrow.IOListArrow,
+  Control.Arrow.IOStateListArrow,
+  Control.Arrow.ListArrow,
+  Control.Arrow.ListArrows,
+  Control.Arrow.StateListArrow,
+  Data.AssocList,
+  Data.Atom,
+  -- Data.Char.UTF8,
+  Data.Tree.Class,
+  Data.Tree.NTree.TypeDefs,
+  Text.XML.MXT.Arrow,
+  Text.XML.MXT.Arrow.DTDProcessing,
+  Text.XML.MXT.Arrow.DocumentInput,
+  Text.XML.MXT.Arrow.DocumentOutput,
+  Text.XML.MXT.Arrow.Edit,
+  Text.XML.MXT.Arrow.GeneralEntitySubstitution,
+  Text.XML.MXT.Arrow.Namespace,
+  Text.XML.MXT.Arrow.ParserInterface,
+  Text.XML.MXT.Arrow.Pickle,
+  Text.XML.MXT.Arrow.Pickle.DTD,
+  Text.XML.MXT.Arrow.Pickle.Schema,
+  Text.XML.MXT.Arrow.Pickle.Xml,
+  Text.XML.MXT.Arrow.ProcessDocument,
+  Text.XML.MXT.Arrow.ReadDocument,
+  Text.XML.MXT.Arrow.SystemConfig,
+  Text.XML.MXT.Arrow.WriteDocument,
+  Text.XML.MXT.Arrow.XmlArrow,
+  Text.XML.MXT.Arrow.XmlIOStateArrow,
+  Text.XML.MXT.Arrow.XmlRegex,
+  Text.XML.MXT.DOM.FormatXmlTree,
+  Text.XML.MXT.DOM.Interface,
+  Text.XML.MXT.DOM.MimeTypeDefaults,
+  Text.XML.MXT.DOM.MimeTypes,
+  Text.XML.MXT.DOM.QualifiedName,
+  Text.XML.MXT.DOM.ShowXml,
+  Text.XML.MXT.DOM.TypeDefs,
+  Text.XML.MXT.DOM.Util,
+  Text.XML.MXT.DOM.XmlKeywords,
+  Text.XML.MXT.DOM.XmlNode,
+  Text.XML.MXT.DOM.XmlOptions,
+  Text.XML.MXT.DTDValidation.AttributeValueValidation,
+  Text.XML.MXT.DTDValidation.DTDValidation,
+  Text.XML.MXT.DTDValidation.DocTransformation,
+  Text.XML.MXT.DTDValidation.DocValidation,
+  Text.XML.MXT.DTDValidation.IdValidation,
+  Text.XML.MXT.DTDValidation.RE,
+  Text.XML.MXT.DTDValidation.TypeDefs,
+  Text.XML.MXT.DTDValidation.Validation,
+  Text.XML.MXT.DTDValidation.XmlRE,
+  Text.XML.MXT.IO.GetFILE,
+  Text.XML.MXT.IO.GetHTTPLibCurl,
+  Text.XML.MXT.Parser.HtmlParsec,
+  Text.XML.MXT.Parser.ProtocolHandlerUtil,
+  -- Text.XML.MXT.Parser.TagSoup,
+  Text.XML.MXT.Parser.XhtmlEntities,
+  Text.XML.MXT.Parser.XmlCharParser,
+  Text.XML.MXT.Parser.XmlDTDParser,
+  Text.XML.MXT.Parser.XmlDTDTokenParser,
+  Text.XML.MXT.Parser.XmlEntities,
+  Text.XML.MXT.Parser.XmlParsec,
+  Text.XML.MXT.Parser.XmlTokenParser,
+  Text.XML.MXT.RelaxNG,
+  Text.XML.MXT.RelaxNG.BasicArrows,
+  Text.XML.MXT.RelaxNG.CreatePattern,
+  Text.XML.MXT.RelaxNG.DataTypeLibMysql,
+  Text.XML.MXT.RelaxNG.DataTypeLibUtils,
+  Text.XML.MXT.RelaxNG.DataTypeLibraries,
+  Text.XML.MXT.RelaxNG.DataTypes,
+  Text.XML.MXT.RelaxNG.PatternFunctions,
+  Text.XML.MXT.RelaxNG.PatternToString,
+  Text.XML.MXT.RelaxNG.Schema,
+  Text.XML.MXT.RelaxNG.SchemaGrammar,
+  Text.XML.MXT.RelaxNG.Simplification,
+  Text.XML.MXT.RelaxNG.Unicode.Blocks,
+  Text.XML.MXT.RelaxNG.Unicode.CharProps,
+  Text.XML.MXT.RelaxNG.Utils,
+  Text.XML.MXT.RelaxNG.Validation,
+  Text.XML.MXT.RelaxNG.Validator,
+  Text.XML.MXT.RelaxNG.XmlSchema.DataTypeLibW3C,
+  Text.XML.MXT.Version
+
+ hs-source-dirs: src
+
+ ghc-options: -Wall
+
+ extensions: MultiParamTypeClasses DeriveDataTypeable FunctionalDependencies FlexibleInstances
+
+ build-depends: base       >= 4   && < 5,
+                containers >= 0.2 && < 1,
+                directory  >= 1   && < 2,
+                filepath   >= 1   && < 2,
+                parsec     >= 2.1 && < 4,
+                HUnit      >= 1.2 && < 2,
+                network    >= 2.1 && < 3,
+                deepseq    >= 1.1 && < 2,
+                bytestring >= 0.9 && < 1,
+                -- tagsoup    >= 0.10 && < 0.11,
+                curl       >= 1.3 && < 2,
+                mxt-charproperties  >= 9 && < 10,
+                mxt-unicode         >= 9 && < 10,
+                mxt-regex-xmlschema >= 9 && < 10
+
+Source-Repository head
+  Type:     git
+  Location: git://github.com/xplat/mxt.git

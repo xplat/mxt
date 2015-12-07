@@ -1,14 +1,14 @@
-PL1	= hxt-charproperties \
-          hxt-regex-xmlschema \
-          hxt-unicode \
-          hxt \
-          hxt-curl \
-          hxt-http \
-          hxt-tagsoup \
-          hxt-xpath \
-          hxt-relaxng \
-	  hxt-xslt \
-	  hxt-cache
+PL1	= mxt-charproperties \
+          mxt-regex-xmlschema \
+          mxt-unicode \
+          mxt \
+          mxt-curl \
+          mxt-http \
+          mxt-tagsoup \
+          mxt-xpath \
+          mxt-relaxng \
+	  mxt-xslt \
+	  mxt-cache
 
 all	:
 	$(MAKE) untar

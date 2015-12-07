@@ -1,0 +1,121 @@
+Name:                mxt-install
+Version:             9.1.0
+Synopsis:            Dummy application for installing the MXT packages
+Description:         Dummy application for installing the MXT packages.
+                     The MXT packages not to be installed can be selected
+                     by cabal flags, e.g. mxt-curl can be switched off
+                     by flag noCurl
+License:             OtherLicense
+License-file:        LICENSE
+Author:              Uwe Schmidt
+Maintainer:          uwe@fh-wedel.de
+Copyright:           Copyright (c) 2010 Uwe Schmidt
+Stability:           Experimental
+Category:            XML
+Build-type:          Simple
+
+-- Extra-source-files:
+
+Cabal-version:       >=1.6
+
+Flag curl
+ Description:        Install mxt-curl
+ Default:            True
+
+Flag http
+ Description:        Install mxt-http
+ Default:            True
+
+Flag cache
+ Description:        Install mxt-cache
+ Default:            True
+
+Flag bzip
+ Description:        For testing mxt-cache with compression
+ Default:            False
+
+Flag tagsoup
+ Description:        Install mxt-tagsoup
+ Default:            True
+
+Flag expat
+ Description:        Install mxt-expat
+ Default:            True
+
+Flag relaxng
+ Description:        Install mxt-relaxng
+ Default:            True
+
+Flag xpath
+ Description:        Install mxt-xpath
+ Default:            True
+
+Flag xslt
+ Description:        Install mxt-xslt
+ Default:            True
+
+Executable mxt-test
+  Main-is: MXTTest.hs
+
+  Extensions: CPP
+
+  ghc-options: -Wall
+
+  if flag(curl)
+    CPP-Options: -Dcurl
+
+  if flag(http)
+    CPP-Options: -Dhttp
+
+  if flag(cache)
+    CPP-Options: -Dcache
+
+  if flag(bzip)
+    CPP-Options: -Dbzip
+
+  if flag(tagsoup)
+    CPP-Options: -Dtagsoup
+
+  if flag(expat)
+    CPP-Options: -Dexpat
+
+  if flag(relaxng)
+    CPP-Options: -Drelaxng
+
+  if flag(xpath)
+    CPP-Options: -Dxpath
+
+  if flag(xslt)
+    CPP-Options: -Dxslt
+
+  Build-depends: base             >= 4   && < 5,
+                 directory        >= 1   && < 2,
+                 HUnit            >= 1.2 && < 2,
+                 mxt              >= 9.1 && < 10
+
+  if flag(curl)
+    Build-depends:  mxt-curl      >= 9   && < 10
+
+  if flag(http)
+    Build-depends:  mxt-http      >= 9   && < 10
+
+  if flag(cache)
+    Build-depends:  mxt-cache     >= 9   && < 10
+
+  if flag(bzip)
+    Build-depends:  bzlib         >= 0.5 && < 1
+
+  if flag(tagsoup)
+    Build-depends:  mxt-tagsoup   >= 9.1 && < 10
+
+  if flag(expat)
+    Build-depends:  mxt-expat     >= 9.1 && < 10
+
+  if flag(relaxng)
+    Build-depends:  mxt-relaxng   >= 9   && < 10
+
+  if flag(xpath)
+    Build-depends:  mxt-xpath     >= 9   && < 10
+
+  if flag(xslt)
+    Build-depends:  mxt-xslt      >= 9   && < 10

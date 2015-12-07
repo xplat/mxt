@@ -1,0 +1,4 @@
+:set -package-conf ../../lib/mxt/package.conf
+:set -package mxt
+:set -Wall
+:load DTDtoMXT

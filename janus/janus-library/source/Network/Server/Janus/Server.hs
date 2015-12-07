@@ -21,8 +21,8 @@ module Network.Server.Janus.Server
     )
 where
 
-import Text.XML.HXT.Core
-import Text.XML.HXT.XPath
+import Text.XML.MXT.Core
+import Text.XML.MXT.XPath
 
 import Network.Server.Janus.Core as Shader
 import Network.Server.Janus.Messaging

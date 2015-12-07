@@ -33,7 +33,7 @@ module Network.Server.Janus.Shader.DaemonShader
 where
 
 import Control.Concurrent
-import Text.XML.HXT.Core
+import Text.XML.MXT.Core
 
 import Network.Server.Janus.Core as Shader
 import Network.Server.Janus.Messaging

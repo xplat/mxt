@@ -1,0 +1,40 @@
+Name:           mxt-binary
+Version:        0.0.3.1
+Synopsis:       Serialisation and deserialisation of MXT XmlTrees.
+Description:    Extension for storing and loading already parsed XML documents in an internal format.
+                Serialisation and Deserialisation is done with the binary package.
+License:        OtherLicense
+License-file:   LICENSE
+Author:         Uwe Schmidt
+Maintainer:     Uwe Schmidt <uwe@fh-wedel.de>
+Stability:      Stable
+Category:       XML
+Homepage:       https://github.com/xplat/mxt
+Copyright:      Copyright (c) 2010 Uwe Schmidt
+Build-type:     Simple
+Cabal-version:  >=1.6
+
+extra-source-files:
+ test/TestXmlTreeBinary.hs
+ test/t.xml
+ test/Makefile
+
+library
+ exposed-modules:
+  Text.XML.MXT.Arrow.Binary
+  Text.XML.MXT.DOM.Binary
+  Data.Tree.NTree.Binary
+
+ hs-source-dirs: src
+ ghc-options: -Wall
+
+ build-depends: base       >= 4   && < 5,
+                bytestring >= 0.9 && < 1,
+                binary     >= 0.5 && < 1,
+                bzlib      >= 0.5 && < 1,
+                deepseq    >= 1.1 && < 2,
+                mxt        >= 8.5 && < 9
+
+Source-Repository head
+  Type:     git
+  Location: git://github.com/xplat/mxt.git

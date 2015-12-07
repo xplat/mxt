@@ -1,0 +1,5 @@
+:set -package-conf ../../lib/mxt/package.conf
+:set -package mxt
+:set -Wall
+:set args --curl --trace=1
+:load Citations

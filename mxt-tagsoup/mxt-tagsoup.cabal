@@ -1,0 +1,42 @@
+-- arch-tag: Haskell XML Toolbox main description file
+Name:           mxt-tagsoup
+Version:        9.1.3
+Synopsis:       TagSoup parser for MXT
+Description:    The Tagsoup interface for the MXT lazy HTML parser.
+License:        OtherLicense
+License-file:   LICENSE
+Author:         Uwe Schmidt
+Maintainer:     Uwe Schmidt <uwe@fh-wedel.de>
+Stability:      Stable
+Category:       XML
+Homepage:       https://github.com/xplat/mxt
+Copyright:      Copyright (c) 2014 Uwe Schmidt
+Build-type:     Simple
+Cabal-version:  >=1.6
+
+extra-source-files:
+ examples/hparser/HXmlParser.hs
+
+library
+ exposed-modules:
+  Text.XML.MXT.TagSoup
+
+ other-modules:
+  Text.XML.MXT.Arrow.TagSoupInterface,
+  Text.XML.MXT.Parser.TagSoup
+
+ hs-source-dirs: src
+
+ ghc-options: -Wall
+ ghc-prof-options: -caf-all
+
+ extensions: MultiParamTypeClasses DeriveDataTypeable FunctionalDependencies FlexibleInstances CPP
+
+ build-depends: base               >= 4    && < 5,
+                tagsoup            >= 0.13 && < 0.14,
+                mxt-charproperties >= 9    && < 10,
+                mxt-unicode        >= 9    && < 10,
+                mxt                >= 9.1  && < 10
+Source-Repository head
+  Type:     git
+  Location: git://github.com/xplat/mxt.git

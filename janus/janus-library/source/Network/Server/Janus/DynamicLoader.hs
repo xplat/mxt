@@ -39,7 +39,7 @@ module Network.Server.Janus.DynamicLoader
 where
 
 import Data.Map
-import Text.XML.HXT.Core
+import Text.XML.MXT.Core
 
 # if PLUGINS
 import System.Plugins

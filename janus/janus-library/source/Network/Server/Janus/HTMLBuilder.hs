@@ -13,7 +13,7 @@
    Janus HTML Builder
 
    A set of Arrow functions to create an abstract representation of HTML documents. These Arrows base on
-   HXT XML Arrows to represent XHTML.
+   MXT XML Arrows to represent XHTML.
 
 -}
 
@@ -53,7 +53,7 @@ module Network.Server.Janus.HTMLBuilder
    )
 where
 
-import Text.XML.HXT.Core
+import Text.XML.MXT.Core
 
 import Network.Server.Janus.XmlHelper
 

@@ -12,7 +12,7 @@
 
    Janus XML Helper functions
 
-   A set of general helper functions operating on Arrows and HXT's XmlTree.
+   A set of general helper functions operating on Arrows and MXT's XmlTree.
 
 -}
 
@@ -87,8 +87,8 @@ import Data.Maybe
 
 import System.Time
 
-import Text.XML.HXT.Core
-import Text.XML.HXT.XPath
+import Text.XML.MXT.Core
+import Text.XML.MXT.XPath
 
 import Network.Server.Janus.JanusPaths
 
@@ -102,7 +102,7 @@ import System.Console.Readline
     ( readline
     , addHistory
     )
-import Text.XML.HXT.DOM.Util(stringTrim)
+import Text.XML.MXT.DOM.Util(stringTrim)
 -}
 
 -- ------------------------------------------------------------
@@ -285,7 +285,7 @@ liftConstSource source =
         returnA             -< result
 
 {- |
-An Arrow reading the file denoted by the argument, parsing the content by means of HXT and returning the XmlTree computed.
+An Arrow reading the file denoted by the argument, parsing the content by means of MXT and returning the XmlTree computed.
 -}
 fileSource :: String -> XmlSource s a
 fileSource filename
@@ -311,7 +311,7 @@ emptyConfig =
 
 {- |
 Evaluates a given Arrow with an XmlTree as input type (first argument) by applying a given state (second argument).
-Non-determinism of the HXT Arrows is handled by returning a list of result values.
+Non-determinism of the MXT Arrows is handled by returning a list of result values.
 -}
 evalXmlList :: XmlAccess s a -> s -> IO [a]
 evalXmlList op state =
@@ -325,7 +325,7 @@ evalXmlList op state =
 
 {- |
 Evaluates a given Arrow with an XmlTree as input type (first argument) by applying a given state (second argument).
-Non-determinism of the HXT Arrows is handled by returning either the first result or Nothing for no result.
+Non-determinism of the MXT Arrows is handled by returning either the first result or Nothing for no result.
 -}
 evalXml :: XmlAccess s a -> s -> IO (Maybe a)
 evalXml op state =
@@ -335,7 +335,7 @@ evalXml op state =
 
 {- |
 Evaluates a given Arrow with an XmlTree as input type (first argument) by applying a given state (second argument).
-Non-determinism of the HXT Arrows is handled by returning either the first result or a default value (second argument)
+Non-determinism of the MXT Arrows is handled by returning either the first result or a default value (second argument)
 for no result.
 -}
 evalXmlDef :: XmlAccess s a -> s -> a -> IO a

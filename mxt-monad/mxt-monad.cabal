@@ -1,0 +1,137 @@
+-- arch-tag: Haskell XML Toolbox main description file
+Name:           mxt-monad
+Version:        1.0.0.3
+Synopsis:       A collection of tools for processing XML with Haskell.
+Description:    The Haskell XML Toolbox bases on the ideas of HaXml and HXML,
+                but introduces a more general approach for processing XML with Haskell.
+                The Haskell XML Toolbox uses a generic data model for representing XML documents,
+                including the DTD subset and the document subset, in Haskell.
+                It contains a validating XML parser, a HTML parser, namespace support,
+                an XPath expression evaluator, an XSLT library, a RelaxNG schema validator
+                and funtions for serialization and deserialization of user defined data
+                .
+                This library is a rewrite of the mxt library.
+                It is based on monadic datatypes, not on arrows,
+                but the functionality, and the names of most of the
+                functions and operators are the same.
+                So it is rather easy to modifiy any applications using mxt
+                to work with mxt-monad.
+                The advantage of the monadic approach is mainly,
+                that this enables working with the do-notation.
+                .               
+License:        MIT
+License-file:   LICENSE
+Author:         Uwe Schmidt
+Maintainer:     Uwe Schmidt <uwe@fh-wedel.de>
+Stability:      experimental
+Category:       XML
+Homepage:       https://github.com/xplat/mxt
+Copyright:      Copyright (c) 2005-2015 Uwe Schmidt
+Build-type:     Simple
+Cabal-version:  >=1.8
+
+flag network-uri
+  description: Get Network.URI from the network-uri package,
+               with ghc <  7.10 default is False,
+               with ghc >= 7.10 default is True 
+  default: False
+
+library
+  exposed-modules:
+    Control.Monad.Arrow
+    Control.Monad.MonadSeq
+    Control.Monad.MonadTry
+    Data.Sequence.ArrowTypes
+    Data.Sequence.ErrorSequence
+    Data.Sequence.Monad.IdSeq
+    Data.Sequence.Monad.IOSeq
+    Data.Sequence.Monad.IOStateSeq
+    Data.Sequence.Monad.StateSeq
+    Data.Sequence.Seq
+    Data.Sequence.Sequence
+    Text.XML.MXT.Core9
+    Text.XML.MXT.Monad
+    Text.XML.MXT.Monad.ArrowXml
+    Text.XML.MXT.Monad.Binary
+    Text.XML.MXT.Monad.DocumentInput
+    Text.XML.MXT.Monad.DocumentOutput
+    Text.XML.MXT.Monad.DTDProcessing
+    Text.XML.MXT.Monad.DTDValidation.AttributeValueValidation
+    Text.XML.MXT.Monad.DTDValidation.DocTransformation
+    Text.XML.MXT.Monad.DTDValidation.DocValidation
+    Text.XML.MXT.Monad.DTDValidation.DTDValidation
+    Text.XML.MXT.Monad.DTDValidation.IdValidation
+    Text.XML.MXT.Monad.DTDValidation.TypeDefs
+    Text.XML.MXT.Monad.DTDValidation.Validation
+    Text.XML.MXT.Monad.DTDValidation.XmlRE
+    Text.XML.MXT.Monad.Edit
+    Text.XML.MXT.Monad.GeneralEntitySubstitution
+    Text.XML.MXT.Monad.Namespace
+    Text.XML.MXT.Monad.ParserInterface
+    Text.XML.MXT.Monad.Pickle
+    Text.XML.MXT.Monad.Pickle.Xml
+    Text.XML.MXT.Monad.ProcessDocument
+    Text.XML.MXT.Monad.ReadDocument
+    Text.XML.MXT.Monad.WriteDocument
+    Text.XML.MXT.Monad.XmlOptions
+    Text.XML.MXT.Monad.XmlRegex
+    Text.XML.MXT.Monad.XmlState
+
+  other-modules:
+    Control.Monad.Arrow.ArrowExc
+    Control.Monad.Arrow.ArrowIf
+    Control.Monad.Arrow.ArrowIO
+    Control.Monad.Arrow.ArrowList
+    Control.Monad.Arrow.ArrowNF
+    Control.Monad.Arrow.ArrowState
+    Control.Monad.Arrow.ArrowSubstitute
+    Control.Monad.Arrow.ArrowTree
+    Control.Monad.Arrow.NTreeEdit
+    Data.Sequence.Impl.List
+    Data.Sequence.Impl.ListWithFailure
+    Data.Sequence.Impl.Tree
+    Data.Sequence.Impl.TreeWithFailure
+    Text.XML.MXT.Monad.XmlState.ErrorHandling
+    Text.XML.MXT.Monad.XmlState.MimeTypeTable
+    Text.XML.MXT.Monad.XmlState.RunIOStateArrow
+    Text.XML.MXT.Monad.XmlState.SystemConfig
+    Text.XML.MXT.Monad.XmlState.TraceHandling
+    Text.XML.MXT.Monad.XmlState.TypeDefs
+    Text.XML.MXT.Monad.XmlState.URIHandling
+
+  hs-source-dirs: src
+
+  ghc-options: -Wall
+  ghc-prof-options: -caf-all
+
+  extensions:
+    MultiParamTypeClasses
+    DeriveDataTypeable
+    FunctionalDependencies
+    FlexibleInstances
+    TypeSynonymInstances
+
+ build-depends: base               >= 4   && < 5,
+                containers         >= 0.2 && < 1,
+                directory          >= 1   && < 2,
+                filepath           >= 1.0 && < 2,
+                mtl                >= 2   && < 3,
+                deepseq            >= 1.1 && < 2,
+                bytestring         >= 0.9 && < 1,
+                binary             >= 0.5 && < 1,
+                mxt                >= 9.1 && < 10,
+                mxt-charproperties >= 9.1 && < 10,
+                mxt-unicode        >= 9   && < 10
+
+ if flag(network-uri)
+   build-depends: network-uri >= 2.6
+ else
+   if impl(ghc >= 7.10)
+     build-depends: network-uri >= 2.6
+   else
+     build-depends: network >= 2.4 && < 2.6
+
+Source-Repository head
+  Type:     git
+  Location: git://github.com/xplat/mxt.git
+

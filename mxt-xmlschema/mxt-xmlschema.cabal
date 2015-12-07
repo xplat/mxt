@@ -1,0 +1,111 @@
+-- arch-tag: Haskell XML Toolbox main description file
+Name:           mxt-xmlschema
+Version:        9.3.1.3
+Synopsis:       The MXT XMLSchema validator
+Description:    The MXT XMLSchema validator
+License:        MIT
+License-file:   LICENSE
+Author:         Thorben Guelck
+Maintainer:     Uwe Schmidt <uwe@fh-wedel.de>
+Stability:      Experimental
+Category:       XML
+Homepage:       https://github.com/xplat/mxt
+Copyright:      Copyright (c) 2012 Thorben Guelck, Uwe Schmidt
+Build-type:     Simple
+Cabal-version:  >=1.8
+
+extra-source-files:
+  tests/complexTypesErrors.xml
+  tests/complexTypesOk.xml
+  tests/complexTypes.xsd
+  tests/example.xml
+  tests/example.xsd
+  tests/incl.xsd
+  tests/redefine.xml
+  tests/redefine.xsd
+  tests/simpleTypesAttrsErrors.xml
+  tests/simpleTypesAttrsOk.xml
+  tests/simpleTypesAttrs.xsd
+  tests/simpleTypesElemsErrors.xml
+  tests/simpleTypesElemsOk.xml
+  tests/simpleTypesElems.xsd
+  tests/simpleTypes.xsd
+
+flag network-uri
+  description: Get Network.URI from the network-uri package,
+               with ghc <  7.10 default is False,
+               with ghc >= 7.10 default is True 
+  default: False
+
+library
+  exposed-modules:
+    Text.XML.MXT.XMLSchema
+
+  other-modules:
+    Text.XML.MXT.XMLSchema.AbstractSyntax
+    Text.XML.MXT.XMLSchema.Loader
+    Text.XML.MXT.XMLSchema.Regex
+    Text.XML.MXT.XMLSchema.SystemConfig
+    Text.XML.MXT.XMLSchema.Transformation
+    Text.XML.MXT.XMLSchema.Validation
+    Text.XML.MXT.XMLSchema.ValidationCore
+    Text.XML.MXT.XMLSchema.ValidationTypes
+    Text.XML.MXT.XMLSchema.W3CDataTypeCheck
+    Text.XML.MXT.XMLSchema.W3CDataTypeCheckUtils
+    Text.XML.MXT.XMLSchema.XmlUtils
+
+  hs-source-dirs: src
+
+  ghc-options: -Wall
+  ghc-prof-options: -caf-all
+
+  build-depends: base                >= 4     && < 5,
+                 containers          >= 0.2   && < 1,
+                 parsec              >= 2.1   && < 4,
+                 mxt                 >= 9.3   && < 10,
+                 mxt-regex-xmlschema >= 9.2   && < 10,
+                 mtl                 >= 2     && < 3,
+                 time                >= 1.4   && < 2
+
+  if flag(network-uri)
+    build-depends: network-uri >= 2.6
+  else
+    if impl(ghc >= 7.10)
+      build-depends: network-uri >= 2.6
+    else
+      build-depends: network >= 2.4 && < 2.6
+
+executable validateWithSchema
+  main-is: Main.hs
+
+  other-modules:
+    Text.XML.MXT.XMLSchema.TestSuite
+
+  hs-source-dirs: src
+
+  ghc-options: -Wall
+  ghc-prof-options: -caf-all
+
+  build-depends: base,
+                 containers,
+                 parsec,
+                 mxt,
+                 mxt-regex-xmlschema,
+                 mxt-curl >= 9.1.1,
+                 mtl,
+                 time,
+                 HUnit >= 1.2   && < 2
+
+  if flag(network-uri)
+    build-depends: network-uri >= 2.6
+  else
+    if impl(ghc >= 7.10)
+      build-depends: network-uri >= 2.6
+    else
+      build-depends: network >= 2.4 && < 2.6
+
+Source-Repository head
+  Type:     git
+  Location: git://github.com/xplat/mxt.git
+
+

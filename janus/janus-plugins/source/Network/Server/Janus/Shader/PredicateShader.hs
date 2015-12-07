@@ -39,7 +39,7 @@ where
 
 import Data.Maybe
 import Text.Regex
-import Text.XML.HXT.Arrow
+import Text.XML.MXT.Arrow
 
 import Network.Server.Janus.Core
 import Network.Server.Janus.Messaging

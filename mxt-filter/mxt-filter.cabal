@@ -1,0 +1,82 @@
+-- arch-tag: Haskell XML Toolbox main description file
+Name:           mxt-filter
+Version:        8.4.3.2
+Synopsis:       A collection of tools for processing XML with Haskell (Filter variant). 
+Description:    The Haskell XML Toolbox bases on the ideas of HaXml and HXML.
+                This package is a compatibitlity package for old software working with
+                the filter approach like in HaXml.
+                For new projects it's recomended to use the arrow based library (mxt).
+License:        OtherLicense
+License-file:   LICENSE
+Author:         Uwe Schmidt, Martin Schmidt
+Maintainer:     Uwe Schmidt <uwe@fh-wedel.de>
+Stability:      Stable
+Category:       XML
+Homepage:       https://github.com/xplat/mxt
+Copyright:      Copyright (c) 2005-2015 Uwe Schmidt
+Build-type:     Simple
+Cabal-version:  >=1.6
+
+flag network-uri
+  description: Get Network.URI from the network-uri package
+  default: False
+
+library
+ exposed-modules:
+  Control.Monad.MonadStateIO,
+  Data.Tree.NTree.Filter,
+  System.PipeOpen,
+  Text.XML.MXT.DOM,
+  Text.XML.MXT.DOM.EditFilters,
+  Text.XML.MXT.DOM.Namespace,
+  Text.XML.MXT.DOM.NamespaceFilter,
+  Text.XML.MXT.DOM.XmlState,
+  Text.XML.MXT.DOM.XmlTree,
+  Text.XML.MXT.DOM.XmlTreeFilter,
+  Text.XML.MXT.DOM.XmlTreeFunctions,
+  Text.XML.MXT.DOM.XmlTreeTypes,
+  Text.XML.MXT.Parser,
+  Text.XML.MXT.Parser.DTDProcessing,
+  Text.XML.MXT.Parser.DefaultURI,
+  Text.XML.MXT.Parser.HtmlParser,
+  Text.XML.MXT.Parser.MainFunctions,
+  Text.XML.MXT.Parser.ProtocolHandler,
+  Text.XML.MXT.Parser.ProtocolHandlerFile,
+  Text.XML.MXT.Parser.ProtocolHandlerHttpCurl,
+  Text.XML.MXT.Parser.ProtocolHandlerHttpNative,
+  Text.XML.MXT.Parser.ProtocolHandlerHttpNativeOrCurl,
+  Text.XML.MXT.Parser.XmlInput,
+  Text.XML.MXT.Parser.XmlOutput,
+  Text.XML.MXT.Parser.XmlParser,
+  Text.XML.MXT.Validator.AttributeValueValidation,
+  Text.XML.MXT.Validator.DTDValidation,
+  Text.XML.MXT.Validator.DocTransformation,
+  Text.XML.MXT.Validator.DocValidation,
+  Text.XML.MXT.Validator.IdValidation,
+  Text.XML.MXT.Validator.RE,
+  Text.XML.MXT.Validator.Validation,
+  Text.XML.MXT.Validator.ValidationFilter,
+  Text.XML.MXT.Validator.XmlRE
+ hs-source-dirs: src
+ ghc-options: -Wall
+ extensions: MultiParamTypeClasses DeriveDataTypeable FunctionalDependencies FlexibleInstances
+
+ build-depends: base       >= 4      && < 5,
+                containers >= 0.2    && < 1,
+                directory  >= 1      && < 2,
+                filepath   >= 1      && < 2,
+                parsec     >= 2.1    && < 4,
+                HUnit      >= 1.2    && < 2,
+                HTTP       >= 4000   && < 5000,
+                process    >= 1.0.1  && < 2,
+                mxt        >= 8.4    && < 9
+
+ if flag(network-uri)
+   build-depends: network-uri >= 2.6
+ else
+   build-depends: network >= 2.4 && < 2.6
+
+Source-Repository head
+  Type:     git
+  Location: git://github.com/xplat/mxt.git
+

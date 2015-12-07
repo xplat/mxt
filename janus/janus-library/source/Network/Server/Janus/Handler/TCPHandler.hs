@@ -49,7 +49,7 @@ import Network.Server.HWS.Util hiding (emptyLine, accept)
 import System.Posix hiding (Handler)
 import System.IO
 
-import Text.XML.HXT.Core
+import Text.XML.MXT.Core
 
 -- ------------------------------------------------------------
 

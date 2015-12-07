@@ -36,7 +36,7 @@ import System.IO
 
 # endif
 
-import Text.XML.HXT.Core
+import Text.XML.MXT.Core
 
 
 # if PLUGINS
@@ -49,7 +49,7 @@ dynHandler = proc (conf, shader) -> do
     let result = proc _ -> do
         source  <- getValDef _config_haskell ""                 -<  conf
         creator <- arrIO0 $
-            (unsafeEval ("(" ++ source ++ ") :: HandlerCreator") [".", "./hs-plugins/src", "./HXT-6.0/src"] :: IO (Maybe HandlerCreator)) -<< ()
+            (unsafeEval ("(" ++ source ++ ") :: HandlerCreator") [".", "./hs-plugins/src", "./MXT-6.0/src"] :: IO (Maybe HandlerCreator)) -<< ()
         (if isJust creator
             then (fromJust creator)
             else (constA nullHandler)

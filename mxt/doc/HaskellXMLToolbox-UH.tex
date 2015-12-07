@@ -1,0 +1,97 @@
+% HaskellXMLToolbox-UH.tex
+\begin{hcarentry}[updated]{Haskell XML Toolbox}
+\label{mxt}
+\report{Uwe Schmidt}%05/12
+\status{seventh major release (current release: 9.2)}
+\makeheader
+
+\subsubsection*{Description}
+
+The Haskell XML Toolbox (MXT) is a collection of tools for processing XML with
+Haskell. It is itself purely written in Haskell 98. The core component of the
+Haskell XML Toolbox is a validating XML-Parser that supports
+almost fully the Extensible Markup Language (XML) 1.0 (Second Edition).
+There is a validator based on DTDs and a new more powerful one for
+Relax~NG schemas.
+
+The Haskell XML Toolbox is based on the ideas of HaXml %(\url{http://haskell.org/communities/05-2009/html/report.html#sect5.13.2})
+and HXML,
+but introduces a more general approach for processing XML with Haskell.
+The processing model is based on arrows. The arrow interface is more flexible
+than the filter approach taken in the earlier MXT versions and in HaXml.
+It is also safer; type checking of combinators becomes possible with the arrow
+approach.
+
+MXT is partitioned into a collection of smaller packages: The core
+package is
+{\tt mxt}. It contains a validating XML parser, an HTML parser,
+filters for manipulating XML/HTML and so called XML pickler for
+converting XML to and from native Haskell data.
+
+Basic functionality for character handling and decoding is
+separated into the packages {\tt mxt-charproperties} and {\tt
+ mxt-unicode}. These packages may be generally useful even for non XML projects.
+
+HTTP access can be done with the help of the packages
+{\tt mxt-http} for native Haskell HTTP access and {\tt mxt-curl} via a
+libcurl binding. An alternative lazy non validating parser for XML and HTML can be
+found in {\tt mxt-tagsoup}. 
+
+The XPath interpreter is in package {\tt mxt-xpath}, the XSLT part in
+{\tt mxt-xslt}
+and the Relax~NG validator in {\tt mxt-relaxng}. For checking the XML
+Schema Datatype definitions, also used with Relax~NG, there is a
+separate and generally useful regex package {\tt mxt-regex-xmlschema}.
+
+The old MXT approach working with filter {\tt mxt-filter} is still
+available,
+but currently only with mxt-8. It has not (yet) been updated to the
+mxt-9 mayor version.
+
+\subsubsection*{Features}
+
+\begin{compactitem}
+\item Validating XML parser
+\item Very liberal HTML parser
+\item Lightweight lazy parser for XML/HTML based on Tagsoup~\cref{tagsoup}
+\item Binding to the expat parser via hexpat package
+\item Easy de-/serialization between native Haskell data and XML by pickler and pickler combinators
+\item XPath support
+\item Full Unicode support
+\item Support for XML namespaces
+\item Cabal package support for GHC
+\item HTTP access via Haskell bindings to libcurl and via Haskell HTTP
+  package
+\item Tested with W3C XML validation suite
+\item Example programs
+\item Relax~NG schema validator
+\item XML Schema validator (next release)
+\item Lightweight regex library with full support of Unicode and XML Schema
+  Datatype regular expression syntax
+\item An MXT Cookbook for using the toolbox and the arrow interface
+\item Basic XSLT support
+\item GitHub repository with current development versions of all packages
+  \url{http://github.com/xplat/mxt}
+\end{compactitem}
+
+\subsubsection*{Current Work}
+
+The master thesis and project implementing an XML Schema validator
+started in October 2011 has been finished. The validator will be released
+in a separate module mxt-xmlschema. Integration with mxt has still to be done,
+so the first release will be in May or June this year.
+The implementation will be rather complete, except the datatype library
+for XML Schema. Some of the time and date types are not yet included.
+With the next MXT release the master thesis will be published on the MXT homepage.
+
+\FurtherReading
+The Haskell XML Toolbox Web page
+(\url{http://www.fh-wedel.de/~si/HXmlToolbox/index.html})
+includes links to downloads,  documentation, and further information.
+
+A getting started tutorial about MXT is available
+ in the Haskell Wiki (\url{http://www.haskell.org/haskellwiki/MXT}
+). The conversion between XML and native Haskell data types is
+described in another Wiki page
+(\url{http://www.haskell.org/haskellwiki/MXT/Conversion_of_Haskell_data_from/to_XML}).
+\end{hcarentry}

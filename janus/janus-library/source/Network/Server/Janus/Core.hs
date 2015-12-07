@@ -217,11 +217,11 @@ import System.Time
 
 import Text.ParserCombinators.Parsec
 
-import Text.XML.HXT.Parser.XmlCharParser
+import Text.XML.MXT.Parser.XmlCharParser
 
-import Text.XML.HXT.Core
-import Text.XML.HXT.XPath
-import Text.XML.HXT.XPath.XPathDataTypes
+import Text.XML.MXT.Core
+import Text.XML.MXT.XPath
+import Text.XML.MXT.XPath.XPathDataTypes
        ( Expr (..)
        , LocationPath (..)
        , Path (..)

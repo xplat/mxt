@@ -32,7 +32,7 @@ module Network.Server.Janus.ContextBrowser
    )
 where
 
-import Text.XML.HXT.Core
+import Text.XML.MXT.Core
 
 import Network.Server.Janus.Core
 import Network.Server.Janus.HTMLBuilder

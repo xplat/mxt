@@ -26,7 +26,7 @@ where
 import Data.Maybe
 import System.IO
 import System.Eval (unsafeEval)
-import Text.XML.HXT.Core
+import Text.XML.MXT.Core
 
 import Network.Server.Janus.Core
 import Network.Server.Janus.Transaction as TA
@@ -43,7 +43,7 @@ dynHandler = proc (conf, shader) -> do
     let result = proc _ -> do
         source  <- getValDef _config_haskell ""                 -<  conf
         creator <- arrIO0 $
-            (unsafeEval ("(" ++ source ++ ") :: HandlerCreator") [".", "./hs-plugins/src", "./HXT-6.0/src"] :: IO (Maybe HandlerCreator)) -<< ()
+            (unsafeEval ("(" ++ source ++ ") :: HandlerCreator") [".", "./hs-plugins/src", "./MXT-6.0/src"] :: IO (Maybe HandlerCreator)) -<< ()
         (if isJust creator
             then (fromJust creator)
             else (constA nullHandler)

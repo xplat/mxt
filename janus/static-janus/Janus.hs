@@ -16,7 +16,7 @@ import Network.Server.Janus.Core
 import Network.Server.Janus.Server    ( serverArrow )
 import Network.Server.Janus.XmlHelper ( evalXml )
 
-import Text.XML.HXT.Core
+import Text.XML.MXT.Core
 
 -- required handler modules
 import Network.Server.Janus.Handler.ConsoleHandler

@@ -1,0 +1,91 @@
+-- arch-tag: Haskell XML Toolbox main description file
+Name:           mxt-relaxng
+Version:        9.1.5.5
+Synopsis:       The MXT RelaxNG validator
+Description:    The MXT RelaxNG validator
+License:        MIT
+License-file:   LICENSE
+Author:         Uwe Schmidt, Martin Schmidt, Torben Kuseler
+Maintainer:     Uwe Schmidt <uwe@fh-wedel.de>
+Stability:      Stable
+Category:       XML
+Homepage:       https://github.com/xplat/mxt
+Copyright:      Copyright (c) 2005-2015 Uwe Schmidt
+Build-type:     Simple
+Cabal-version:  >=1.6
+
+extra-source-files:
+ examples/hparser/example1.xml
+ examples/hparser/HXmlParser.hs
+ examples/hparser/invalid1.xml
+ examples/hparser/invalid2.rng
+ examples/hparser/invalid3.rng
+ examples/hparser/invalid.xml
+ examples/hparser/Makefile
+ examples/hparser/valid1.rng
+ examples/hparser/valid1.xml
+ examples/hrelaxng/HRelaxNG.hs
+ examples/hrelaxng/Validate.hs
+ examples/hrelaxng/invalid1.xml
+ examples/hrelaxng/invalid2.rng
+ examples/hrelaxng/invalid3.rng
+ examples/hrelaxng/Makefile
+ examples/hrelaxng/valid1.rng
+ examples/hrelaxng/valid1.xml
+ examples/hrelaxng/valid2.rng
+ examples/hrelaxng/valid2.xml
+ examples/hrelaxng/simple.xml
+ examples/hrelaxng/simple-qualified.rng
+ examples/hrelaxng/simple-unqualified.rng
+
+flag network-uri
+  description: Get Network.URI from the network-uri package,
+               with ghc <  7.10 default is False,
+               with ghc >= 7.10 default is True 
+  default: False
+
+library
+ exposed-modules:
+  Text.XML.MXT.RelaxNG,
+  Text.XML.MXT.RelaxNG.BasicArrows,
+  Text.XML.MXT.RelaxNG.CreatePattern,
+  Text.XML.MXT.RelaxNG.DataTypeLibMysql,
+  Text.XML.MXT.RelaxNG.DataTypeLibUtils,
+  Text.XML.MXT.RelaxNG.DataTypeLibraries,
+  Text.XML.MXT.RelaxNG.DataTypes,
+  Text.XML.MXT.RelaxNG.PatternFunctions,
+  Text.XML.MXT.RelaxNG.PatternToString,
+  Text.XML.MXT.RelaxNG.Schema,
+  Text.XML.MXT.RelaxNG.SchemaGrammar,
+  Text.XML.MXT.RelaxNG.Simplification,
+  Text.XML.MXT.RelaxNG.SystemConfig,
+  Text.XML.MXT.RelaxNG.Utils,
+  Text.XML.MXT.RelaxNG.Validation,
+  Text.XML.MXT.RelaxNG.Validator,
+  Text.XML.MXT.RelaxNG.XMLSchema.DataTypeLibW3C
+
+ hs-source-dirs: src
+
+ ghc-options: -Wall
+ ghc-prof-options: -caf-all
+
+ -- extensions: MultiParamTypeClasses DeriveDataTypeable FunctionalDependencies FlexibleInstances
+
+ build-depends: base       >= 4   && < 5,
+                containers >= 0.2 && < 1,
+                parsec     >= 2.1 && < 4,
+                mxt                 >= 9.1.3 && < 10,
+                mxt-charproperties  >= 9     && < 10,
+                mxt-regex-xmlschema >= 9.2   && < 10
+
+ if flag(network-uri)
+   build-depends: network-uri >= 2.6
+ else
+   if impl(ghc >= 7.10)
+     build-depends: network-uri >= 2.6
+   else
+     build-depends: network >= 2.4 && < 2.6
+
+Source-Repository head
+  Type:     git
+  Location: git://github.com/xplat/mxt.git

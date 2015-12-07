@@ -37,8 +37,8 @@ import System.Time	( formatCalendarTime
 			, getClockTime
 			)
 
-import Text.XML.HXT.Core
-import Text.XML.HXT.XPath
+import Text.XML.MXT.Core
+import Text.XML.MXT.XPath
 
 -- ------------------------------------------------------------
 
@@ -262,7 +262,7 @@ part1 cf dt
 	  , "import Network.Server.Janus.Server    ( serverArrow )"
 	  , "import Network.Server.Janus.XmlHelper ( evalXml )"
 	  , ""
-	  , "import Text.XML.HXT.Core"
+	  , "import Text.XML.MXT.Core"
 	  , ""
 	  ]
 

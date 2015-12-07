@@ -1,0 +1,4 @@
+:set -hide-package mxt-relaxng
+:set -i../../src
+:set -Wall -fglasgow-exts
+

@@ -1,0 +1,5 @@
+:set -ignore-package mxt
+:set -i.:../src
+:set -XMultiParamTypeClasses
+:set -XFunctionalDependencies
+:set -XFlexibleInstances

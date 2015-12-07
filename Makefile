@@ -1,28 +1,28 @@
-PL1	= hxt-charproperties \
-          hxt-regex-xmlschema \
-          hxt-unicode \
-          hxt \
-          hxt-curl \
-          hxt-http \
-          hxt-tagsoup \
-          hxt-xpath \
-          hxt-relaxng \
-          hxt-xmlschema \
-	  hxt-xslt \
-	  hxt-cache
+PL1	= mxt-charproperties \
+          mxt-regex-xmlschema \
+          mxt-unicode \
+          mxt \
+          mxt-curl \
+          mxt-http \
+          mxt-tagsoup \
+          mxt-xpath \
+          mxt-relaxng \
+          mxt-xmlschema \
+	  mxt-xslt \
+	  mxt-cache
 
 PL	= $(PL1)
 
-# hxt-expat-0.20.7 is not yet ready for ghc-7.10 because of dependency of deepseq < 1.4
-PL2     = $(PL1) hxt-expat
+# mxt-expat-0.20.7 is not yet ready for ghc-7.10 because of dependency of deepseq < 1.4
+PL2     = $(PL1) mxt-expat
 
 
 # FLAGS=--flags="network-uri"
 FLAGS=
 
 #          janus/janus-library                # no longer maintained
-#                 hxt-filter                  # not maintained to work with hxt-9
-#                 hxt-binary                  # no longer required, integrated into hxt-9
+#                 mxt-filter                  # not maintained to work with mxt-9
+#                 mxt-binary                  # no longer required, integrated into mxt-9
 
 all	:
 	$(foreach i,$(PL), ( cd $i && cabal configure $(FLAGS)\
@@ -74,7 +74,7 @@ unregister	:
 gl-unregister	:
 	ghc-pkg list --simple-output \
 		| xargs --max-args=1 echo \
-		| egrep '(hxt(-[a-z]+)?-|janus-library-)' \
+		| egrep '(mxt(-[a-z]+)?-|janus-library-)' \
 		| xargs --max-args=1 ghc-pkg --force unregister
 	ghc-pkg list
 
@@ -90,7 +90,7 @@ sb-deps	:
 sb-unregister	:
 	cabal sandbox hc-pkg list -- --simple-output \
 		| xargs --max-args=1 echo \
-		| egrep '(hxt(-[a-z]+)?-|janus-library-)' \
+		| egrep '(mxt(-[a-z]+)?-|janus-library-)' \
 		| xargs --max-args=1 cabal sandbox hc-pkg unregister -- --force
 	cabal sandbox hc-pkg list
 

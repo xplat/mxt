@@ -1,1 +1,0 @@
-exec ghci -Wall -ignore-package hxt-xpath -i../../src HXPath.hs

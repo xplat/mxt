@@ -75,7 +75,7 @@ where
 
 import Data.Map
 import System.Time
-import Text.XML.HXT.Core
+import Text.XML.MXT.Core
 
 import Network.Server.Janus.JanusPaths
 import Network.Server.Janus.XmlHelper
