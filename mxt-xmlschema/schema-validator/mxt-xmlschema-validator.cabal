@@ -1,4 +1,4 @@
-name:                mxt-xmlschema-valdator
+name:                mxt-xmlschema-validator
 version:             0.1.0.0
 synopsis:            MXT XML Parser and Validator for XML Schema
 -- description:         

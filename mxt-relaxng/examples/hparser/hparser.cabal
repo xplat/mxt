@@ -7,7 +7,7 @@ cabal-version:       >=1.10
 
 executable hrelaxng
   main-is:             HXmlParser.hs
-  build-depends:       base >=4.7 && <4.8
+  build-depends:       base >=4.7 && <4.9
                      , mxt, mxt-relaxng, mxt-curl
 
   default-language:    Haskell2010

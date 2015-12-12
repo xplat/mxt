@@ -45,7 +45,7 @@ import Text.XML.MXT.Expat
 
 import Data.Maybe       ()
 
-import System           ( system )
+import System.Process   ( system )
 import System.Directory
 import System.Exit
 import System.IO        ()

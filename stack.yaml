@@ -1,0 +1,41 @@
+extra-deps: []
+resolver: lts-3.9
+flags:
+  mxt-xmlschema:
+    network-uri: false
+  mxt-relaxng:
+    network-uri: false
+  mxt-install:
+    cache: true
+    xpath: true
+    http: true
+    tagsoup: true
+    xslt: true
+    bzip: false
+    curl: true
+    expat: true
+    relaxng: true
+  mxt-http:
+    network-uri: false
+  mxt:
+    network-uri: false
+packages:
+- mxt/
+- mxt/test/
+- mxt/test/unpicke-valid/
+- mxt-cache/
+- mxt-charproperties/
+- mxt-curl/
+- mxt-expat/
+- mxt-http/
+- mxt-http/test/
+- mxt-install/
+- mxt-regex-xmlschema/
+- mxt-relaxng/
+- mxt-relaxng/examples/hparser/
+- mxt-tagsoup/
+- mxt-unicode/
+- mxt-xmlschema/
+- mxt-xmlschema/schema-validator/
+- mxt-xpath/
+- mxt-xslt/
