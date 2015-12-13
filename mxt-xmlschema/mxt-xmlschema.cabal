@@ -79,6 +79,16 @@ executable validateWithSchema
   main-is: Main.hs
 
   other-modules:
+    Text.XML.MXT.XMLSchema.AbstractSyntax
+    Text.XML.MXT.XMLSchema.Loader
+    Text.XML.MXT.XMLSchema.Regex
+    Text.XML.MXT.XMLSchema.Transformation
+    Text.XML.MXT.XMLSchema.Validation
+    Text.XML.MXT.XMLSchema.ValidationCore
+    Text.XML.MXT.XMLSchema.ValidationTypes
+    Text.XML.MXT.XMLSchema.W3CDataTypeCheck
+    Text.XML.MXT.XMLSchema.W3CDataTypeCheckUtils
+    Text.XML.MXT.XMLSchema.XmlUtils
     Text.XML.MXT.XMLSchema.TestSuite
 
   hs-source-dirs: src
